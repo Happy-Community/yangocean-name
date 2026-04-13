@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Carbon Footprint Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to bottom, #e3f2fd, #f4f8f6);
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+h1 {
+  text-align: center;
+  color: #1565c0;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0d47a1;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  background: #e3f2fd;
+  border-left: 5px solid #1976d2;
+  border-radius: 8px;
+}
+
+.back {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<h1>🌍 Carbon Footprint Calculator</h1>
+
+<p>Electricity usage (kWh/month):</p>
+<input type="number" id="electricity">
+
+<p>Car travel (km/month):</p>
+<input type="number" id="transport">
+
+<button onclick="calcCarbon()">Calculate</button>
+
+<div id="result" class="result" style="display:none;"></div>
+
+<a class="back" href="../index.html">← Back to Home</a>
+
+</div>
+</div>
+
+<script>
+function calcCarbon() {
+  let e = document.getElementById("electricity").value || 0;
+  let t = document.getElementById("transport").value || 0;
+
+  // Simple estimates
+  let co2 = (e * 0.5) + (t * 0.2);
+
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").innerHTML =
+    "🌱 Estimated CO₂ emission: <b>" + co2.toFixed(1) + " kg/month</b>";
+}
+</script>
+
+</body>
+</html>
