@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tree Oxygen Calculator - Yangocean</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #f4f8f6;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #219150;
+    }
+
+    .result {
+      margin-top: 20px;
+      background: #eef6f9;
+      padding: 15px;
+      border-left: 4px solid #27ae60;
+      border-radius: 6px;
+      font-size: 18px;
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="card">
+    <h1>🌳 Tree Oxygen Calculator</h1>
+
+    <p>Enter number of people:</p>
+
+    <input type="number" id="people" placeholder="e.g. 4">
+
+    <button onclick="calculateTrees()">Calculate</button>
+
+    <div id="result" class="result" style="display:none;"></div>
+
+    <div class="note">
+      *Estimated based on average mature trees. Actual values may vary depending on tree type and environment.
+    </div>
+  </div>
+
+</div>
+
+<script>
+function calculateTrees() {
+  let people = document.getElementById("people").value;
+
+  if (people <= 0) {
+    alert("Please enter a valid number.");
+    return;
+  }
+
+  let trees = Math.ceil(people / 2);
+
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").innerHTML =
+    "🌱 You need approximately <strong>" + trees + "</strong> trees to support <strong>" + people + "</strong> people.";
+}
+</script>
+
+</body>
+</html>
