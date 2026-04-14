@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Yangocean - Calculateur d’empreinte carbone et outils de durabilité</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Calculateur gratuit d’empreinte carbone, suivi de l’eau, des déchets plastiques et outils de durabilité environnementale.">
+  <meta name="keywords" content="empreinte carbone, durabilité, vie écologique, réduire émissions carbone, calculateur eau, plastique">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Yangocean">
+
+  <link rel="canonical" href="https://yangocean.com/" />
+
+  <meta property="og:title" content="Yangocean - Outils environnementaux gratuits">
+  <meta property="og:description" content="Mesurez votre impact environnemental gratuitement.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yangocean.com/">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="eco.html">Conseils écologiques</a>
+    <a href="consumption.html">Consommation</a>
+    <a href="awareness.html">Sensibilisation</a>
+    <a href="daily-eco-tips.html">Conseils quotidiens 🌱</a>
+    <a href="about.html">À propos</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Confidentialité</a>
+    <a href="terms.html">Conditions</a>
+  </nav>
+
+  <section class="hero">
+    <h1>🌿 Outils environnementaux Yangocean</h1>
+    <p>Outils gratuits pour réduire votre impact environnemental.</p>
+  </section>
+
+  <section class="card">
+    <h2>🌱 Conseil écologique du jour</h2>
+    <p id="daily-tip">Chargement du conseil...</p>
+    <p><a href="daily-eco-tips.html">👉 Voir les 50 conseils</a></p>
+  </section>
+
+  <script>
+    const tips = [
+      "Éteignez les lumières inutiles.",
+      "Utilisez des sacs réutilisables.",
+      "Prenez des douches plus courtes.",
+      "Débranchez les appareils.",
+      "Évitez le plastique à usage unique.",
+      "Recyclez correctement.",
+      "Utilisez les transports publics.",
+      "Achetez uniquement ce dont vous avez besoin."
+    ];
+
+    const today = new Date().getDate();
+    const tipIndex = today % tips.length;
+
+    document.getElementById("daily-tip").innerText = tips[tipIndex];
+  </script>
+
+  <section class="card">
+    <h2>🌍 Comprendre votre impact</h2>
+    <p>Le changement climatique affecte la planète.</p>
+    <p>Nos outils vous aident à réduire votre impact.</p>
+  </section>
+
+  <section class="card">
+    <h2>🌍 Outils gratuits</h2>
+
+    <div class="features">
+      <div class="feature">
+        <a href="tools/tree-calculator.html">🌳 Calculateur d’oxygène des arbres</a>
+        <p>Estime la production d’oxygène.</p>
+      </div>
+
+      <div class="feature">
+        <a href="tools/carbon-calculator.html">🌫️ Calculateur d’empreinte carbone</a>
+        <p>Mesure vos émissions quotidiennes.</p>
+      </div>
+
+      <div class="feature">
+        <a href="tools/water-calculator.html">💧 Calculateur d’eau</a>
+        <p>Suivi de la consommation d’eau.</p>
+      </div>
+
+      <div class="feature">
+        <a href="tools/plastic-calculator.html">🧴 Calculateur de plastique</a>
+        <p>Impact de l’utilisation du plastique.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🌱 Vie durable</h2>
+
+    <div class="grid">
+      <a href="eco.html"><div class="icon">🌱</div><div class="title">Vie écologique</div></a>
+      <a href="consumption.html"><div class="icon">♻️</div><div class="title">Consommation durable</div></a>
+      <a href="awareness.html"><div class="icon">🌍</div><div class="title">Sensibilisation</div></a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>ℹ️ Objectif éducatif</h2>
+    <p>Outils uniquement à but éducatif.</p>
+  </section>
+
+  <footer class="footer">
+    © 2026 Yangocean · Vie durable
+  </footer>
+
+</div>
+
+</body>
+</html>
