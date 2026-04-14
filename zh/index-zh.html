@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Yangocean - 免费碳足迹计算器与环境可持续工具</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="免费碳足迹计算器、水资源使用追踪器、塑料废弃物计算器和环境可持续工具，帮助减少环境影响。">
+  <meta name="keywords" content="碳足迹计算器, 可持续工具, 环保生活, 减少碳排放, 水使用计算器, 塑料计算器">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Yangocean">
+
+  <link rel="canonical" href="https://yangocean.com/" />
+
+  <meta property="og:title" content="Yangocean - 免费环境可持续工具">
+  <meta property="og:description" content="追踪您的碳足迹、水使用量和环境影响。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yangocean.com/">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <nav>
+    <a href="index.html">首页</a>
+    <a href="eco.html">环保提示</a>
+    <a href="consumption.html">消费</a>
+    <a href="awareness.html">环保意识</a>
+    <a href="daily-eco-tips.html">每日提示 🌱</a>
+    <a href="about.html">关于</a>
+    <a href="contact.html">联系</a>
+    <a href="privacy.html">隐私</a>
+    <a href="terms.html">条款</a>
+  </nav>
+
+  <section class="hero">
+    <h1>🌿 Yangocean 环境可持续工具</h1>
+    <p>免费工具帮助你了解并减少环境影响。</p>
+  </section>
+
+  <section class="card">
+    <h2>🌱 每日环保提示</h2>
+    <p id="daily-tip">加载今日提示...</p>
+    <p><a href="daily-eco-tips.html">👉 查看全部50条提示</a></p>
+  </section>
+
+  <script>
+    const tips = [
+      "不用时关灯节约能源。",
+      "使用可重复使用的袋子。",
+      "缩短洗澡时间节约用水。",
+      "拔掉不用的电器插头。",
+      "尽量避免一次性塑料。",
+      "正确进行回收。",
+      "使用公共交通或拼车。",
+      "只购买真正需要的物品。"
+    ];
+
+    const today = new Date().getDate();
+    const tipIndex = today % tips.length;
+
+    document.getElementById("daily-tip").innerText = tips[tipIndex];
+  </script>
+
+  <section class="card">
+    <h2>🌍 了解你的环境影响</h2>
+    <p>气候变化与污染影响全球。</p>
+    <p>我们的工具帮助你衡量并减少影响。</p>
+  </section>
+
+  <section class="card">
+    <h2>🌍 免费可持续工具</h2>
+
+    <div class="features">
+      <div class="feature">
+        <a href="tools/tree-calculator.html">🌳 树木氧气计算器</a>
+        <p>估算树木产生的氧气。</p>
+      </div>
+
+      <div class="feature">
+        <a href="tools/carbon-calculator.html">🌫️ 碳足迹计算器</a>
+        <p>计算每日碳排放。</p>
+      </div>
+
+      <div class="feature">
+        <a href="tools/water-calculator.html">💧 用水量计算器</a>
+        <p>追踪用水量。</p>
+      </div>
+
+      <div class="feature">
+        <a href="tools/plastic-calculator.html">🧴 塑料废弃物计算器</a>
+        <p>测量塑料使用影响。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🌱 学习可持续生活</h2>
+
+    <div class="grid">
+      <a href="eco.html"><div class="icon">🌱</div><div class="title">绿色生活技巧</div></a>
+      <a href="consumption.html"><div class="icon">♻️</div><div class="title">可持续消费</div></a>
+      <a href="awareness.html"><div class="icon">🌍</div><div class="title">环境意识</div></a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>ℹ️ 教育用途</h2>
+    <p>所有工具仅用于教育目的。</p>
+  </section>
+
+  <footer class="footer">
+    © 2026 Yangocean · 绿色与可持续生活
+  </footer>
+
+</div>
+
+</body>
+</html>
