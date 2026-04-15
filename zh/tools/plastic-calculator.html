@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<title>塑料垃圾计算器</title>
+<title>塑料与碳排放计算器</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="/styles.css">
@@ -13,12 +13,15 @@
 <div class="container">
 <div class="card">
 
-<h1>🧴 塑料垃圾计算器</h1>
+<h1>🧴 塑料与碳排放计算器</h1>
 
-<p>每周一次性塑料数量：</p>
-<input type="number" id="plastic">
+<p>每周使用塑料瓶数量：</p>
+<input type="number" id="bottles">
 
-<button onclick="calc()">计算</button>
+<p>每周使用塑料袋数量：</p>
+<input type="number" id="bags">
+
+<button onclick="calcPlastic()">计算</button>
 
 <div id="result" class="result" style="display:none;"></div>
 
@@ -28,14 +31,29 @@
 </div>
 
 <script>
-function calc() {
-  let p = document.getElementById("plastic").value || 0;
+function calcPlastic() {
+  let bottles = document.getElementById("bottles").value || 0;
+  let bags = document.getElementById("bags").value || 0;
 
-  let monthly = p * 4;
+  let yearlyBottles = bottles * 52;
+  let yearlyBags = bags * 52;
+
+  let totalItems = yearlyBottles + yearlyBags;
+
+  let bottleCO2 = yearlyBottles * 0.025;
+  let bagCO2 = yearlyBags * 0.005;
+
+  let totalCO2 = bottleCO2 + bagCO2;
+
+  let rating = totalCO2 < 10 ? "低 🌱"
+             : totalCO2 < 50 ? "中 ⚠️"
+             : "高 🔴";
 
   document.getElementById("result").style.display = "block";
   document.getElementById("result").innerHTML =
-    "🧴 预计每月塑料垃圾数量：<b>" + monthly + "</b> 件";
+    "🧴 年度塑料使用量：<b>" + totalItems + " 件</b><br>" +
+    "🌍 碳排放估算：<b>" + totalCO2.toFixed(2) + " kg/年</b><br>" +
+    "📊 环境影响等级：<b>" + rating + "</b>";
 }
 </script>
 
