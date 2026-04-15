@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Calculateur de déchets plastiques</title>
+<title>Calculateur Plastique & CO₂</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="/styles.css">
@@ -13,12 +13,15 @@
 <div class="container">
 <div class="card">
 
-<h1>🧴 Calculateur de déchets plastiques</h1>
+<h1>🧴 Calculateur Plastique & CO₂</h1>
 
-<p>Plastiques à usage unique par semaine :</p>
-<input type="number" id="plastic">
+<p>Bouteilles en plastique par semaine :</p>
+<input type="number" id="bottles">
 
-<button onclick="calc()">Calculer</button>
+<p>Sacs plastiques par semaine :</p>
+<input type="number" id="bags">
+
+<button onclick="calcPlastic()">Calculer</button>
 
 <div id="result" class="result" style="display:none;"></div>
 
@@ -28,14 +31,29 @@
 </div>
 
 <script>
-function calc() {
-  let p = document.getElementById("plastic").value || 0;
+function calcPlastic() {
+  let bottles = document.getElementById("bottles").value || 0;
+  let bags = document.getElementById("bags").value || 0;
 
-  let monthly = p * 4;
+  let yearlyBottles = bottles * 52;
+  let yearlyBags = bags * 52;
+
+  let totalItems = yearlyBottles + yearlyBags;
+
+  let bottleCO2 = yearlyBottles * 0.025;
+  let bagCO2 = yearlyBags * 0.005;
+
+  let totalCO2 = bottleCO2 + bagCO2;
+
+  let rating = totalCO2 < 10 ? "Faible 🌱"
+             : totalCO2 < 50 ? "Moyen ⚠️"
+             : "Élevé 🔴";
 
   document.getElementById("result").style.display = "block";
   document.getElementById("result").innerHTML =
-    "🧴 Déchets plastiques mensuels estimés : <b>" + monthly + "</b> articles";
+    "🧴 Usage annuel de plastique : <b>" + totalItems + " articles</b><br>" +
+    "🌍 CO₂ estimé : <b>" + totalCO2.toFixed(2) + " kg/an</b><br>" +
+    "📊 Niveau d’impact : <b>" + rating + "</b>";
 }
 </script>
 
