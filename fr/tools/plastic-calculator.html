@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Calculateur de déchets plastiques</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<h1>🧴 Calculateur de déchets plastiques</h1>
+
+<p>Plastiques à usage unique par semaine :</p>
+<input type="number" id="plastic">
+
+<button onclick="calc()">Calculer</button>
+
+<div id="result" class="result" style="display:none;"></div>
+
+<a class="back" href="/fr/">← Retour à l’accueil</a>
+
+</div>
+</div>
+
+<script>
+function calc() {
+  let p = document.getElementById("plastic").value || 0;
+
+  let monthly = p * 4;
+
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").innerHTML =
+    "🧴 Déchets plastiques mensuels estimés : <b>" + monthly + "</b> articles";
+}
+</script>
+
+</body>
+</html>
