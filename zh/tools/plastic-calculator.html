@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>塑料垃圾计算器</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<h1>🧴 塑料垃圾计算器</h1>
+
+<p>每周一次性塑料数量：</p>
+<input type="number" id="plastic">
+
+<button onclick="calc()">计算</button>
+
+<div id="result" class="result" style="display:none;"></div>
+
+<a class="back" href="/zh/">← 返回首页</a>
+
+</div>
+</div>
+
+<script>
+function calc() {
+  let p = document.getElementById("plastic").value || 0;
+
+  let monthly = p * 4;
+
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").innerHTML =
+    "🧴 预计每月塑料垃圾数量：<b>" + monthly + "</b> 件";
+}
+</script>
+
+</body>
+</html>
