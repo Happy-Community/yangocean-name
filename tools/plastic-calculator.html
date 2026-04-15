@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Plastic Waste Calculator</title>
+<title>Plastic Waste & CO₂ Calculator</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -59,6 +59,7 @@ button:hover {
   background: #fce4ec;
   border-left: 5px solid #d81b60;
   border-radius: 8px;
+  line-height: 1.6;
 }
 
 .back {
@@ -74,7 +75,7 @@ button:hover {
 <div class="container">
 <div class="card">
 
-<h1>🧴 Plastic Waste Calculator</h1>
+<h1>🧴 Plastic Waste & CO₂ Calculator</h1>
 
 <p>Plastic bottles used per week:</p>
 <input type="number" id="bottles">
@@ -96,11 +97,33 @@ function calcPlastic() {
   let bottles = document.getElementById("bottles").value || 0;
   let bags = document.getElementById("bags").value || 0;
 
-  let total = (bottles * 52) + (bags * 52);
+  // yearly usage
+  let yearlyBottles = bottles * 52;
+  let yearlyBags = bags * 52;
+
+  let totalItems = yearlyBottles + yearlyBags;
+
+  // CO2 estimates (kg per item)
+  let bottleCO2 = yearlyBottles * 0.025;
+  let bagCO2 = yearlyBags * 0.005;
+
+  let totalCO2 = bottleCO2 + bagCO2;
+
+  // Eco rating
+  let rating = "";
+  if (totalCO2 < 10) {
+    rating = "Low 🌱 (Good)";
+  } else if (totalCO2 < 50) {
+    rating = "Medium ⚠️ (Moderate)";
+  } else {
+    rating = "High 🔴 (High Impact)";
+  }
 
   document.getElementById("result").style.display = "block";
   document.getElementById("result").innerHTML =
-    "🧴 Estimated yearly plastic items used: <b>" + total + "</b>";
+    "🧴 Yearly plastic usage: <b>" + totalItems + " items</b><br>" +
+    "🌍 Estimated CO₂ impact: <b>" + totalCO2.toFixed(2) + " kg/year</b><br>" +
+    "📊 Eco rating: <b>" + rating + "</b>";
 }
 </script>
 
