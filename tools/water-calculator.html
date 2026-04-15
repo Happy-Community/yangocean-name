@@ -5,68 +5,8 @@
 <title>Water Usage Calculator</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-  font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(to bottom, #e0f7fa, #f4f8f6);
-  margin: 0;
-  padding: 20px;
-}
-
-.container {
-  max-width: 600px;
-  margin: auto;
-}
-
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-h1 {
-  text-align: center;
-  color: #00796b;
-}
-
-input {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 15px;
-  background: #009688;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #00695c;
-}
-
-.result {
-  margin-top: 20px;
-  padding: 15px;
-  background: #e0f2f1;
-  border-left: 5px solid #009688;
-  border-radius: 8px;
-}
-
-.back {
-  display: block;
-  margin-top: 15px;
-  text-align: center;
-}
-</style>
+<!-- GLOBAL STYLES ONLY -->
+<link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
@@ -77,10 +17,10 @@ button:hover {
 <h1>💧 Water Usage Calculator</h1>
 
 <p>Shower time per day (minutes):</p>
-<input type="number" id="shower">
+<input type="number" id="shower" placeholder="e.g. 10">
 
 <p>Number of people in household:</p>
-<input type="number" id="people">
+<input type="number" id="people" placeholder="e.g. 4">
 
 <button onclick="calcWater()">Calculate</button>
 
@@ -96,7 +36,7 @@ function calcWater() {
   let shower = document.getElementById("shower").value || 0;
   let people = document.getElementById("people").value || 0;
 
-  // Estimate: 9 liters per minute per shower
+  // Estimate: 9 liters per minute per person
   let water = shower * people * 9 * 30;
 
   document.getElementById("result").style.display = "block";
