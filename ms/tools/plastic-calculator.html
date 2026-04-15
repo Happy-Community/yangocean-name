@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<title>Kalkulator Sisa Plastik</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<h1>🧴 Kalkulator Sisa Plastik</h1>
+
+<p>Bilangan plastik sekali guna setiap minggu:</p>
+<input type="number" id="plastic">
+
+<button onclick="calc()">Kira</button>
+
+<div id="result" class="result" style="display:none;"></div>
+
+<a class="back" href="/ms/">← Kembali ke Laman Utama</a>
+
+</div>
+</div>
+
+<script>
+function calc() {
+  let p = document.getElementById("plastic").value || 0;
+
+  let monthly = p * 4;
+
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").innerHTML =
+    "🧴 Anggaran sisa plastik bulanan: <b>" + monthly + "</b> item";
+}
+</script>
+
+</body>
+</html>
