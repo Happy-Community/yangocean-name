@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Calculateur de consommation d’eau</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<h1>💧 Calculateur de consommation d’eau</h1>
+
+<p>Durée de douche par jour (minutes) :</p>
+<input type="number" id="shower">
+
+<p>Nombre de personnes dans le foyer :</p>
+<input type="number" id="people">
+
+<button onclick="calcWater()">Calculer</button>
+
+<div id="result" class="result" style="display:none;"></div>
+
+<a class="back" href="/fr/">← Retour à l’accueil</a>
+
+</div>
+</div>
+
+<script>
+function calcWater() {
+  let shower = document.getElementById("shower").value || 0;
+  let people = document.getElementById("people").value || 0;
+
+  let water = shower * people * 9 * 30;
+
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").innerHTML =
+    "💧 Consommation mensuelle estimée : <b>" + water + " litres</b>";
+}
+</script>
+
+</body>
+</html>
