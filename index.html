@@ -3,36 +3,16 @@
 <head>
   <meta charset="UTF-8">
 
-  <title>Yangocean - Free Carbon Footprint Calculator & Environmental Tools</title>
+  <title>Yangocean - Environmental Sustainability Tools</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Free carbon footprint calculator, water usage tracker, plastic waste calculator and environmental tools to reduce your environmental impact.">
-  <meta name="keywords" content="carbon footprint calculator, sustainability tools, eco friendly lifestyle, reduce carbon emissions, water usage calculator, plastic calculator">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Yangocean">
-
-  <!-- HREFLANG -->
-  <link rel="canonical" href="https://yangocean.com/en/" />
-  <link rel="alternate" hreflang="en" href="https://yangocean.com/en/" />
-  <link rel="alternate" hreflang="es" href="https://yangocean.com/es/" />
-  <link rel="alternate" hreflang="fr" href="https://yangocean.com/fr/" />
-  <link rel="alternate" hreflang="zh" href="https://yangocean.com/zh/" />
-  <link rel="alternate" hreflang="ms" href="https://yangocean.com/ms/" />
-  <link rel="alternate" hreflang="x-default" href="https://yangocean.com/en/" />
-
-  <!-- OPEN GRAPH -->
-  <meta property="og:title" content="Yangocean - Free Environmental Sustainability Tools">
-  <meta property="og:description" content="Track your carbon footprint, water usage, and environmental impact with free tools.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yangocean.com/en/">
-  <meta property="og:site_name" content="Yangocean">
-  <meta property="og:locale" content="en_US">
+  <meta name="description" content="Free tools to calculate carbon footprint, water usage, plastic waste and learn sustainable living.">
 
   <link rel="stylesheet" href="/styles.css">
 </head>
 
-<body>
+<body class="theme-default">
 
 <div class="container">
 
@@ -44,88 +24,71 @@
     <a href="/fr/">FR</a>
     <a href="/es/">ES</a>
 
-    <span style="margin-left:10px;">|</span>
+    <span>|</span>
 
     <a href="eco.html">Eco Tips</a>
     <a href="consumption.html">Consumption</a>
     <a href="awareness.html">Awareness</a>
-    <a href="daily-eco-tips.html">Daily Tips 🌱</a>
     <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- HERO (IMPROVED) -->
-  <section class="hero">
-    <h1>🌿 Yangocean Sustainability Tools</h1>
-    <p>
-      Simple environmental calculators to understand your impact and build a more sustainable lifestyle.
+  <!-- HERO -->
+  <section class="card">
+    <h1>🌍 Yangocean Sustainability Tools</h1>
+    <p style="text-align:center; color:#555;">
+      Measure your environmental impact and learn how to reduce it through simple daily actions.
     </p>
   </section>
 
   <!-- DAILY TIP -->
   <section class="card">
     <h2>🌱 Daily Eco Tip</h2>
-    <p id="daily-tip">Loading today's eco tip...</p>
-    <p><a href="daily-eco-tips.html">View all eco tips →</a></p>
+    <p id="daily-tip">Loading...</p>
   </section>
 
   <script>
     const tips = [
-      "Turn off lights when not in use to save energy.",
-      "Use reusable bags instead of plastic bags.",
-      "Take shorter showers to conserve water.",
-      "Unplug devices when fully charged.",
-      "Avoid single-use plastics whenever possible.",
-      "Recycle properly to reduce waste.",
-      "Use public transport or carpool when possible.",
-      "Buy only what you need."
+      "Turn off lights when not in use.",
+      "Use reusable bottles instead of plastic.",
+      "Reduce shower time to save water.",
+      "Walk or use public transport when possible.",
+      "Avoid unnecessary energy consumption."
     ];
 
-    const today = new Date().getDate();
-    document.getElementById("daily-tip").innerText = tips[today % tips.length];
+    document.getElementById("daily-tip").innerText =
+      tips[new Date().getDate() % tips.length];
   </script>
 
-  <!-- INTRO -->
+  <!-- TOOLS -->
   <section class="card">
-    <h2>🌍 Why It Matters</h2>
-    <p>
-      Every action you take affects the planet — energy use, transportation, water consumption, and waste.
-    </p>
-    <p>
-      These tools help you measure your impact in a simple and practical way.
-    </p>
-  </section>
+    <h2>⚡ Environmental Calculators</h2>
 
-  <!-- TOOLS (IMPROVED UI BLOCK) -->
-  <section class="card">
-    <h2>🌿 Environmental Calculators</h2>
+    <div class="grid">
 
-    <div class="features">
+      <a class="card-link" href="/tools/carbon-calculator.html">
+        <div class="icon">🌫️</div>
+        <div class="title">Carbon Footprint</div>
+      </a>
 
-      <div class="feature">
-        <a href="/tools/tree-calculator.html">🌳 Tree Carbon Offset Calculator</a>
-        <p>Understand how many trees are needed to offset emissions.</p>
-      </div>
+      <a class="card-link" href="/tools/water-calculator.html">
+        <div class="icon">💧</div>
+        <div class="title">Water Usage</div>
+      </a>
 
-      <div class="feature">
-        <a href="/tools/carbon-calculator.html">🌫️ Carbon Footprint Calculator</a>
-        <p>Estimate your monthly CO₂ emissions.</p>
-      </div>
+      <a class="card-link" href="/tools/plastic-calculator.html">
+        <div class="icon">🧴</div>
+        <div class="title">Plastic Waste</div>
+      </a>
 
-      <div class="feature">
-        <a href="/tools/water-calculator.html">💧 Water Usage Calculator</a>
-        <p>Track household water consumption easily.</p>
-      </div>
-
-      <div class="feature">
-        <a href="/tools/plastic-calculator.html">🧴 Plastic Waste Calculator</a>
-        <p>See your yearly plastic impact and environmental cost.</p>
-      </div>
+      <a class="card-link" href="/tools/tree-calculator.html">
+        <div class="icon">🌳</div>
+        <div class="title">Tree Offset</div>
+      </a>
 
     </div>
   </section>
 
-  <!-- LEARNING SECTION (NOW CARD-BASED UX) -->
+  <!-- LEARN -->
   <section class="card">
     <h2>🌱 Learn Sustainable Living</h2>
 
@@ -133,33 +96,26 @@
 
       <a class="card-link" href="eco.html">
         <div class="icon">🌱</div>
-        <div class="title">Eco Living Tips</div>
+        <div class="title">Eco Living</div>
       </a>
 
       <a class="card-link" href="consumption.html">
         <div class="icon">♻️</div>
-        <div class="title">Sustainable Consumption</div>
+        <div class="title">Consumption</div>
       </a>
 
       <a class="card-link" href="awareness.html">
         <div class="icon">🌍</div>
-        <div class="title">Environmental Awareness</div>
+        <div class="title">Awareness</div>
       </a>
 
     </div>
   </section>
 
-  <!-- DISCLAIMER -->
-  <section class="card">
-    <h2>ℹ️ Note</h2>
-    <p>
-      All calculations are simplified estimates for educational purposes and may vary from real-world data.
-    </p>
-  </section>
-
-  <footer class="footer">
-    © 2026 Yangocean · Building a Sustainable Future
-  </footer>
+  <!-- FOOTER -->
+  <div class="footer">
+    © 2026 Yangocean · Sustainable Living Platform
+  </div>
 
 </div>
 
