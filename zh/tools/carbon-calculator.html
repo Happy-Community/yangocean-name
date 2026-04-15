@@ -1,12 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>碳足迹计算器</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* SAME CSS */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to bottom, #e3f2fd, #f4f8f6);
+  margin: 0;
+  padding: 20px;
+}
+.container { max-width: 600px; margin: auto; }
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+h1 { text-align: center; color: #1565c0; }
+input {
+  width: 100%; padding: 12px; margin-top: 10px;
+  border-radius: 8px; border: 1px solid #ccc;
+}
+button {
+  width: 100%; padding: 12px; margin-top: 15px;
+  background: #1976d2; color: white; border: none;
+  border-radius: 8px; font-size: 16px; cursor: pointer;
+}
+button:hover { background: #0d47a1; }
+.result {
+  margin-top: 20px; padding: 15px;
+  background: #e3f2fd; border-left: 5px solid #1976d2;
+  border-radius: 8px;
+}
+.back { display: block; margin-top: 15px; text-align: center; }
+</style>
+</head>
+
+<body>
+<div class="container">
+<div class="card">
+
 <h1>🌍 碳足迹计算器</h1>
 
 <p>用电量（千瓦时/月）：</p>
+<input type="number" id="electricity">
 
 <p>汽车行驶（公里/月）：</p>
+<input type="number" id="transport">
 
 <button onclick="calcCarbon()">计算</button>
 
-document.getElementById("result").innerHTML =
-"🌱 预计二氧化碳排放：<b>" + co2.toFixed(1) + " 千克/月</b>";
+<div id="result" class="result" style="display:none;"></div>
 
 <a class="back" href="/zh/">← 返回首页</a>
+
+</div>
+</div>
+
+<script>
+function calcCarbon() {
+  let e = document.getElementById("electricity").value || 0;
+  let t = document.getElementById("transport").value || 0;
+
+  let co2 = (e * 0.5) + (t * 0.2);
+
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").innerHTML =
+    "🌱 预计二氧化碳排放：<b>" + co2.toFixed(1) + " 千克/月</b>";
+}
+</script>
+
+</body>
+</html>
