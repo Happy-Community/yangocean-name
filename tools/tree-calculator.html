@@ -36,39 +36,59 @@ function calcTree() {
     return;
   }
 
-  // 🌍 Core model (kept consistent across languages)
-  let co2PerPerson = 4000; // kg/year
-  let treeAbsorption = 20; // kg/year per mature tree
+  // 🌍 CO2 emissions per person (global average simplified range)
+  let co2PerPerson = 4000; // kg/year (adjustable baseline)
+
+  // 🌳 Tree absorption (more realistic range)
+  let treeMin = 10;  // young/mixed forest average
+  let treeMax = 25;  // mature tree in good conditions
+  let treeAvg = 18;  // balanced estimate
 
   let totalCO2 = p * co2PerPerson;
-  let trees = Math.ceil(totalCO2 / treeAbsorption);
 
-  // 🌳 Forest equivalence model (UX-friendly)
-  let largeTrees = Math.round(trees / 3);
-  let mediumTrees = Math.round(trees / 2);
-  let smallTrees = trees;
+  let treesMin = Math.ceil(totalCO2 / treeMax);
+  let treesMax = Math.ceil(totalCO2 / treeMin);
+  let treesAvg = Math.ceil(totalCO2 / treeAvg);
 
-  // 🌱 Emotional interpretation
+  // 🌬️ Oxygen estimation (scientific approximation)
+  // 1 mature tree produces ~100–150 kg oxygen/year
+  let oxygenPerTree = 120;
+
+  let oxygenTotal = treesAvg * oxygenPerTree;
+
+  // 🌳 Visual grouping (UX only, not scientific)
+  let largeTrees = Math.round(treesAvg / 3);
+  let mediumTrees = Math.round(treesAvg / 2);
+  let smallTrees = treesAvg;
+
+  // 🌲 Forest label
   let forestType =
-    trees < 50 ? "a small grove 🌱"
-    : trees < 200 ? "a medium forest 🌳"
+    treesAvg < 50 ? "a small grove 🌱"
+    : treesAvg < 200 ? "a medium forest 🌳"
     : "a large forest 🌲";
 
   document.getElementById("result").style.display = "block";
   document.getElementById("result").innerHTML =
-    "🌍 Total CO₂ footprint: <b>" + totalCO2.toLocaleString() + " kg/year</b><br>" +
-    "🌳 Estimated tree offset: <b>" + trees.toLocaleString() + " trees</b><br><br>" +
+    "🌍 Total CO₂ footprint: <b>" + totalCO2.toLocaleString() + " kg/year</b><br><br>" +
 
-    "🌱 Forest perspective: This is equivalent to " + forestType + "<br><br>" +
+    "🌳 Estimated tree offset (range):<br>" +
+    "• Low estimate: <b>" + treesMax.toLocaleString() + "</b> trees<br>" +
+    "• High efficiency: <b>" + treesMin.toLocaleString() + "</b> trees<br>" +
+    "• Balanced estimate: <b>" + treesAvg.toLocaleString() + "</b> trees<br><br>" +
+
+    "🌱 Forest perspective: " + forestType + "<br><br>" +
+
+    "🌬️ Estimated oxygen production (based on mature trees):<br>" +
+    "<b>" + oxygenTotal.toLocaleString() + " kg O₂/year</b><br><br>" +
 
     "🌿 Visual breakdown (approximate):<br>" +
     "• 🌱 " + smallTrees + " small trees<br>" +
     "• 🌳 " + mediumTrees + " medium trees<br>" +
-    "• 🌲 " + largeTrees + " large mature trees<br><br>" +
+    "• 🌲 " + largeTrees + " mature trees<br><br>" +
 
-    "💡 Tip: Reducing transport and electricity use can significantly lower this footprint.<br><br>" +
+    "💡 Note: This is a simplified educational model. Real-world values vary by climate, tree species, and growth conditions.<br><br>" +
 
-    "📘 Next: Learn how to plant a tree effectively (coming soon)";
+    "📘 Trees do not offset emissions instantly — carbon absorption happens gradually over years.";
 }
 </script>
 
