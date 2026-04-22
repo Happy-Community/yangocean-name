@@ -1,167 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Yangocean - Calculadora de Huella de Carbono y Herramientas de Sostenibilidad</title>
+<meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yangocean - Centro de Vida y Sostenibilidad</title>
 
-  <meta name="description" content="Calculadora gratuita de huella de carbono, uso de agua, residuos plásticos y herramientas de sostenibilidad ambiental.">
-  <meta name="keywords" content="huella de carbono, sostenibilidad, vida ecológica, reducir emisiones, calculadora de agua, residuos plásticos">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Yangocean">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explora mindfulness, vida ecológica, dieta y ejercicio, e higiene y cultivo para una vida equilibrada y saludable.">
 
+<link rel="stylesheet" href="/styles.css">
+<link rel="canonical" href="https://yangocean.com/es/">
 
-  <link rel="canonical" href="https://yangocean.com/es/" />
-
-  <!-- 🌍 HREFLANG (ADD HERE) -->
-  <link rel="alternate" hreflang="en" href="https://yangocean.com/en/" />
-  <link rel="alternate" hreflang="es" href="https://yangocean.com/es/" />
-  <link rel="alternate" hreflang="fr" href="https://yangocean.com/fr/" />
-  <link rel="alternate" hreflang="ms" href="https://yangocean.com/ms/" />
-  <link rel="alternate" hreflang="zh" href="https://yangocean.com/zh/" />
-  <link rel="alternate" hreflang="x-default" href="https://yangocean.com/en/" />
-  
-  <meta property="og:title" content="Yangocean - Herramientas de sostenibilidad ambiental">
-  <meta property="og:description" content="Mide tu impacto ambiental con herramientas gratuitas.">
-  <meta property="og:type" content="website">
-
-  <meta property="og:url" content="https://yangocean.com/es/">
-
-  <link rel="stylesheet" href="/styles.css">
 </head>
 
-<body>
+<body class="theme-default">
 
 <div class="container">
 
-  <!-- 🌍 MULTILINGUAL NAV -->
-  <nav>
-    <a href="/en/">EN</a>
-    <a href="/ms/">BM</a>
-    <a href="/zh/">中文</a>
-    <a href="/fr/">FR</a>
-    <a href="/es/">ES</a>
+<nav>
+  <a href="/">EN</a>
+  <a href="/ms/">BM</a>
+  <a href="/zh/">中文</a>
+  <a href="/fr/">FR</a>
+  <a href="/es/">ES</a>
 
-    <span style="margin-left:10px;">|</span>
+  <span style="margin-left:10px;">|</span>
 
-  
- 
-    <a href="/es/index.html">Inicio</a>
-    <a href="/es/eco.html">Consejos ecológicos</a>
-    <a href="/es/consumption.html">Consumo</a>
-    <a href="/es/awareness.html">Conciencia</a>
-    <a href="/es/daily-eco-tips.html">Consejos diarios 🌱</a>
-    <a href="/es/about.html">Acerca de</a>
-    <a href="/es/contact.html">Contacto</a>
-    <a href="/es/privacy.html">Privacidad</a>
-    <a href="/es/terms.html">Términos</a>
-  </nav>
+  <a href="/es/mindfulness.html">Mindfulness</a>
+  <a href="/es/eco-living.html">Vida Ecológica</a>
+  <a href="/es/diet-exercise.html">Dieta y Ejercicio</a>
+  <a href="/es/hygiene-planting.html">Higiene y Cultivo</a>
+</nav>
 
-  <section class="hero">
-    <h1>🌿 Herramientas ambientales Yangocean</h1>
-    <p>Herramientas gratuitas para reducir tu impacto ambiental.</p>
-  </section>
-
-  <section class="card">
-    <h2>🌱 Consejo ecológico diario</h2>
-    <p id="daily-tip">Cargando consejo de hoy...</p>
-    <p><a href="daily-eco-tips.html">👉 Ver los 50 consejos</a></p>
-  </section>
-
-  <script>
-    const tips = [
-      "Apaga las luces cuando no las uses.",
-      "Usa bolsas reutilizables.",
-      "Duchas más cortas para ahorrar agua.",
-      "Desconecta dispositivos eléctricos.",
-      "Evita plásticos de un solo uso.",
-      "Recicla correctamente.",
-      "Usa transporte público o comparte coche.",
-      "Compra solo lo necesario."
-    ];
-
-    const today = new Date().getDate();
-    const tipIndex = today % tips.length;
-
-    document.getElementById("daily-tip").innerText = tips[tipIndex];
-  </script>
-
-  <section class="card">
-    <h2>🌍 Entiende tu impacto ambiental</h2>
-    <p>El cambio climático afecta al planeta.</p>
-    <p>Nuestras herramientas te ayudan a reducir tu impacto.</p>
-  </section>
-
-  <section class="card">
-    <h2>🌍 Herramientas gratuitas</h2>
-
-    <div class="features">
-      <div class="feature">
-        <a href="tools/tree-calculator.html">🌳 Calculadora de oxígeno de árboles</a>
-        <p>Estimación de oxígeno producido.</p>
-      </div>
-
-      <div class="feature">
-        <a href="tools/carbon-calculator.html">🌫️ Calculadora de huella de carbono</a>
-        <p>Mide tus emisiones diarias.</p>
-      </div>
-
-      <div class="feature">
-        <a href="tools/water-calculator.html">💧 Calculadora de agua</a>
-        <p>Control del consumo de agua.</p>
-      </div>
-
-      <div class="feature">
-        <a href="tools/plastic-calculator.html">🧴 Calculadora de plástico</a>
-        <p>Impacto del uso de plástico.</p>
-      </div>
-    </div>
-  </section>
-<!-- ================= LEARNING ================= -->
 <section class="card">
-  <h2>🌱 Aprende vida sostenible</h2>
-
-  <div class="grid">
-
-    <a class="card-link" href="/es/eco-living.html">
-      <div class="icon">🌱</div>
-      <div class="title">Vida ecológica</div>
-      <p style="font-size:13px; color:#666;">
-        Hábitos diarios que reducen residuos y emisiones.
-      </p>
-    </a>
-
-    <a class="card-link" href="/es/plastic-reduction.html">
-      <div class="icon">♻️</div>
-      <div class="title">Consumo sostenible</div>
-      <p style="font-size:13px; color:#666;">
-        Aprende a comprar menos y elegir mejor.
-      </p>
-    </a>
-
-    <a class="card-link" href="/es/reduce-carbon-footprint.html">
-      <div class="icon">🌍</div>
-      <div class="title">Conciencia ambiental</div>
-      <p style="font-size:13px; color:#666;">
-        Comprende el cambio climático y su impacto.
-      </p>
-    </a>
-
-    <a class="card-link" href="/es/water-saving-tips.html">
-  <div class="icon">💧</div>
-  <div class="title">Conservación del agua</div>
-  <p style="font-size:13px; color:#666;">
-    Aprende a ahorrar agua en la vida diaria.
+  <h1>🌿 Centro de Vida y Sostenibilidad Yangocean</h1>
+  <p style="text-align:center; color:#555;">
+    Una guía sencilla para vivir con atención, hábitos saludables y acciones sostenibles.
   </p>
-</a>
+</section>
+
+<section class="card">
+  <h2>🌱 Vivir con Conciencia</h2>
+  <p>
+    Una vida equilibrada nace de la conciencia: cómo pensamos, comemos, nos movemos y cuidamos el entorno.
+  </p>
+</section>
+
+<section class="card">
+<h2>🌿 Prácticas Esenciales</h2>
+
+<div class="features">
+
+  <div class="feature">
+    <a href="/es/mindfulness.html">🧘 Mindfulness</a>
+    <p>Desarrolla paz interior, sabiduría y estabilidad emocional.</p>
+  </div>
+
+  <div class="feature">
+    <a href="/es/eco-living.html">🌱 Vida Ecológica</a>
+    <p>Reduce residuos y protege el medio ambiente.</p>
+  </div>
+
+  <div class="feature">
+    <a href="/es/diet-exercise.html">🥗 Dieta y Ejercicio</a>
+    <p>Fortalece el cuerpo con buena alimentación y movimiento.</p>
+  </div>
+
+  <div class="feature">
+    <a href="/es/hygiene-planting.html">🧼 Higiene y Cultivo</a>
+    <p>Vida limpia combinada con conexión con la naturaleza.</p>
+  </div>
+
+</div>
+</section>
+
+<section class="card">
+  <h2>🌍 Por Qué Importa</h2>
+  <p>
+    La mente, el cuerpo y el entorno están conectados. Cuando están en equilibrio, la vida mejora.
+  </p>
+</section>
+
+<section class="card">
+  <h2>⚙️ Herramientas</h2>
+
+  <div class="features">
+
+    <div class="feature">
+      <a href="tools/tree-calculator.html">🌳 Calculadora de Oxígeno</a>
+      <p>Estimación de oxígeno generado por árboles</p>
+    </div>
+
+    <div class="feature">
+      <a href="tools/carbon-calculator.html">🌫️ Huella de Carbono</a>
+      <p>Calcula tus emisiones diarias</p>
+    </div>
+
+    <div class="feature">
+      <a href="tools/water-calculator.html">💧 Uso de Agua</a>
+      <p>Mejora tus hábitos de consumo</p>
+    </div>
+
+    <div class="feature">
+      <a href="tools/plastic-calculator.html">🧴 Residuos Plásticos</a>
+      <p>Reduce el plástico de un solo uso</p>
+    </div>
+
   </div>
 </section>
 
 <section class="card">
-  <h2>ℹ️ Uso educativo</h2>
-  <p style="color:#555;">
-    Todos los cálculos son estimaciones solo con fines educativos.
+  <h2>💚 Empieza Pequeño</h2>
+  <p>
+    La constancia crea cambios duraderos.
   </p>
 </section>
 
@@ -176,6 +127,5 @@
 </footer>
 
 </div>
-
 </body>
 </html>
