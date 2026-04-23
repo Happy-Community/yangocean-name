@@ -2,51 +2,93 @@
 <html lang="ms">
 <head>
 <meta charset="UTF-8">
-<title>Kalkulator Oksigen Pokok</title>
+<title>Kalkulator Pengimbangan Karbon Pokok</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- GLOBAL CSS -->
 <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body class="theme-tree">
 
 <div class="container">
-  <div class="card">
+<div class="card">
 
-    <h1>🌳 Kalkulator Oksigen Pokok</h1>
+<h1>🌳 Kalkulator Pengimbangan Karbon Pokok</h1>
 
-    <p>Masukkan bilangan orang:</p>
-    <input type="number" id="people" placeholder="cth: 4">
+<p>Masukkan bilangan orang:</p>
+<input type="number" id="people" placeholder="cth. 4">
 
-    <button onclick="calcTree()">Kira</button>
+<button onclick="calcTree()">Kira</button>
 
-    <div id="result" class="result" style="display:none;"></div>
+<div id="result" class="result" style="display:none;"></div>
 
-    <a class="back" href="/ms/">← Kembali ke Laman Utama</a>
+<a class="back" href="../ms/index.html">← Kembali ke Laman Utama</a>
 
-  </div>
+</div>
 </div>
 
 <script>
 function calcTree() {
   let p = document.getElementById("people").value || 0;
-  let resultBox = document.getElementById("result");
 
   if (p <= 0) {
-    alert("Sila masukkan nombor yang sah");
+    alert("Sila masukkan bilangan orang yang sah");
     return;
   }
 
-  // Improved logic (more realistic estimate)
-  // approx: 1 tree supports ~2–4 people oxygen needs (simplified model)
-  let trees = Math.ceil(p / 3);
+  // 🌍 Pelepasan CO2 setiap orang (purata global dipermudahkan)
+  let co2PerPerson = 4000; // kg/tahun (asas rujukan boleh dilaras)
 
-  resultBox.style.display = "block";
+  // 🌳 Penyerapan pokok (julat lebih realistik)
+  let treeMin = 10;  // purata hutan muda/campuran
+  let treeMax = 25;  // pokok matang dalam keadaan baik
+  let treeAvg = 18;  // anggaran seimbang
 
-  resultBox.innerHTML =
-    "🌱 Anda memerlukan <b>" + trees + "</b> pokok untuk menyokong <b>" + p + "</b> orang.<br>" +
-    "🌍 Ini adalah anggaran pendidikan berdasarkan purata pengeluaran oksigen pokok.";
+  let totalCO2 = p * co2PerPerson;
+
+  let treesMin = Math.ceil(totalCO2 / treeMax);
+  let treesMax = Math.ceil(totalCO2 / treeMin);
+  let treesAvg = Math.ceil(totalCO2 / treeAvg);
+
+  // 🌬️ Anggaran oksigen (anggaran saintifik)
+  // 1 pokok matang menghasilkan ~100–150 kg oksigen/tahun
+  let oxygenPerTree = 120;
+
+  let oxygenTotal = treesAvg * oxygenPerTree;
+
+  // 🌳 Pecahan visual (UX sahaja, bukan saintifik)
+  let largeTrees = Math.round(treesAvg / 3);
+  let mediumTrees = Math.round(treesAvg / 2);
+  let smallTrees = treesAvg;
+
+  // 🌲 Jenis hutan
+  let forestType =
+    treesAvg < 50 ? "hutan kecil 🌱"
+    : treesAvg < 200 ? "hutan sederhana 🌳"
+    : "hutan besar 🌲";
+
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").innerHTML =
+    "🌍 Jumlah jejak CO₂: <b>" + totalCO2.toLocaleString() + " kg/tahun</b><br><br>" +
+
+    "🌳 Anggaran pengimbangan pokok (julat):<br>" +
+    "• Anggaran rendah: <b>" + treesMax.toLocaleString() + "</b> pokok<br>" +
+    "• Kecekapan tinggi: <b>" + treesMin.toLocaleString() + "</b> pokok<br>" +
+    "• Anggaran seimbang: <b>" + treesAvg.toLocaleString() + "</b> pokok<br><br>" +
+
+    "🌱 Perspektif hutan: " + forestType + "<br><br>" +
+
+    "🌬️ Anggaran penghasilan oksigen (berdasarkan pokok matang):<br>" +
+    "<b>" + oxygenTotal.toLocaleString() + " kg O₂/tahun</b><br><br>" +
+
+    "🌿 Pecahan visual (anggaran):<br>" +
+    "• 🌱 " + smallTrees + " pokok kecil<br>" +
+    "• 🌳 " + mediumTrees + " pokok sederhana<br>" +
+    "• 🌲 " + largeTrees + " pokok matang<br><br>" +
+
+    "💡 Nota: Ini adalah model pendidikan yang dipermudahkan. Nilai sebenar bergantung pada iklim, spesies pokok, dan keadaan pertumbuhan.<br><br>" +
+
+    "📘 Pokok tidak mengimbangi pelepasan karbon secara serta-merta — penyerapan berlaku secara berperingkat dalam tempoh beberapa tahun.";
 }
 </script>
 
