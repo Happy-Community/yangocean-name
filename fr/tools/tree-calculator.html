@@ -2,45 +2,93 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Calculateur d’oxygène des arbres</title>
+<title>Calculateur de compensation carbone des arbres</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body class="theme-tree">
-  
+
 <div class="container">
 <div class="card">
 
-<h1>🌳 Calculateur d’oxygène des arbres</h1>
+<h1>🌳 Calculateur de compensation carbone des arbres</h1>
 
 <p>Entrez le nombre de personnes :</p>
-<input type="number" id="people" placeholder="ex : 4">
+<input type="number" id="people" placeholder="ex. 4">
 
-<button onclick="calc()">Calculer</button>
+<button onclick="calcTree()">Calculer</button>
 
 <div id="result" class="result" style="display:none;"></div>
 
-<a class="back" href="/fr/">← Retour à l’accueil</a>
+<a class="back" href="../index.html">← Retour à l’accueil</a>
 
 </div>
 </div>
 
 <script>
-function calc() {
-  let p = document.getElementById("people").value;
+function calcTree() {
+  let p = document.getElementById("people").value || 0;
 
   if (p <= 0) {
-    alert("Entrez un nombre valide");
+    alert("Veuillez entrer un nombre valide de personnes");
     return;
   }
 
-  let trees = Math.ceil(p / 2);
+  // 🌍 Émissions de CO2 par personne (moyenne mondiale simplifiée)
+  let co2PerPerson = 4000; // kg/an (référence de base ajustable)
+
+  // 🌳 Absorption des arbres (plage plus réaliste)
+  let treeMin = 10;  // forêt jeune/mixte moyenne
+  let treeMax = 25;  // arbre mature en bonnes conditions
+  let treeAvg = 18;  // estimation équilibrée
+
+  let totalCO2 = p * co2PerPerson;
+
+  let treesMin = Math.ceil(totalCO2 / treeMax);
+  let treesMax = Math.ceil(totalCO2 / treeMin);
+  let treesAvg = Math.ceil(totalCO2 / treeAvg);
+
+  // 🌬️ Estimation de l’oxygène (approximation scientifique)
+  // 1 arbre mature produit ~100–150 kg d’oxygène/an
+  let oxygenPerTree = 120;
+
+  let oxygenTotal = treesAvg * oxygenPerTree;
+
+  // 🌳 Répartition visuelle (UX uniquement, non scientifique)
+  let largeTrees = Math.round(treesAvg / 3);
+  let mediumTrees = Math.round(treesAvg / 2);
+  let smallTrees = treesAvg;
+
+  // 🌲 Type de forêt
+  let forestType =
+    treesAvg < 50 ? "une petite forêt 🌱"
+    : treesAvg < 200 ? "une forêt moyenne 🌳"
+    : "une grande forêt 🌲";
 
   document.getElementById("result").style.display = "block";
   document.getElementById("result").innerHTML =
-    "🌱 Vous avez besoin de <b>" + trees + "</b> arbres pour soutenir <b>" + p + "</b> personnes.";
+    "🌍 Empreinte totale de CO₂ : <b>" + totalCO2.toLocaleString() + " kg/an</b><br><br>" +
+
+    "🌳 Estimation de compensation des arbres (plage) :<br>" +
+    "• Estimation basse : <b>" + treesMax.toLocaleString() + "</b> arbres<br>" +
+    "• Haute efficacité : <b>" + treesMin.toLocaleString() + "</b> arbres<br>" +
+    "• Estimation équilibrée : <b>" + treesAvg.toLocaleString() + "</b> arbres<br><br>" +
+
+    "🌱 Perspective forestière : " + forestType + "<br><br>" +
+
+    "🌬️ Production estimée d’oxygène (basée sur des arbres matures) :<br>" +
+    "<b>" + oxygenTotal.toLocaleString() + " kg O₂/an</b><br><br>" +
+
+    "🌿 Répartition visuelle (approximative) :<br>" +
+    "• 🌱 " + smallTrees + " petits arbres<br>" +
+    "• 🌳 " + mediumTrees + " arbres moyens<br>" +
+    "• 🌲 " + largeTrees + " arbres matures<br><br>" +
+
+    "💡 Remarque : il s’agit d’un modèle éducatif simplifié. Les valeurs réelles varient selon le climat, les espèces d’arbres et les conditions de croissance.<br><br>" +
+
+    "📘 Les arbres ne compensent pas les émissions instantanément — l’absorption du carbone se fait progressivement sur plusieurs années.";
 }
 </script>
 
