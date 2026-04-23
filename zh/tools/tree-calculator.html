@@ -2,46 +2,93 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<title>树木氧气计算器</title>
+<title>树木碳抵消计算器</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="/styles.css">
 </head>
-
 
 <body class="theme-tree">
 
 <div class="container">
 <div class="card">
 
-<h1>🌳 树木氧气计算器</h1>
+<h1>🌳 树木碳抵消计算器</h1>
 
-<p>输入人数：</p>
-<input type="number" id="people" placeholder="例如：4">
+<p>请输入人数：</p>
+<input type="number" id="people" placeholder="例如 4">
 
-<button onclick="calc()">计算</button>
+<button onclick="calcTree()">计算</button>
 
 <div id="result" class="result" style="display:none;"></div>
 
-<a class="back" href="/zh/">← 返回首页</a>
+<a class="back" href="../zh/index.html">← 返回首页</a>
 
 </div>
 </div>
 
 <script>
-function calc() {
-  let p = document.getElementById("people").value;
+function calcTree() {
+  let p = document.getElementById("people").value || 0;
 
   if (p <= 0) {
-    alert("请输入有效数字");
+    alert("请输入有效的人数");
     return;
   }
 
-  let trees = Math.ceil(p / 2);
+  // 🌍 每人CO2排放量（简化全球平均值）
+  let co2PerPerson = 4000; // kg/年（基础参考值，可调整）
+
+  // 🌳 树木吸收能力（更现实的范围）
+  let treeMin = 10;  // 幼林/混合林平均值
+  let treeMax = 25;  // 成熟树木良好条件
+  let treeAvg = 18;  // 平衡估算
+
+  let totalCO2 = p * co2PerPerson;
+
+  let treesMin = Math.ceil(totalCO2 / treeMax);
+  let treesMax = Math.ceil(totalCO2 / treeMin);
+  let treesAvg = Math.ceil(totalCO2 / treeAvg);
+
+  // 🌬️ 氧气估算（科学近似）
+  // 一棵成熟树每年产生约100–150kg氧气
+  let oxygenPerTree = 120;
+
+  let oxygenTotal = treesAvg * oxygenPerTree;
+
+  // 🌳 视觉分组（仅UX用途，非科学）
+  let largeTrees = Math.round(treesAvg / 3);
+  let mediumTrees = Math.round(treesAvg / 2);
+  let smallTrees = treesAvg;
+
+  // 🌲 森林类型
+  let forestType =
+    treesAvg < 50 ? "小型树林 🌱"
+    : treesAvg < 200 ? "中型森林 🌳"
+    : "大型森林 🌲";
 
   document.getElementById("result").style.display = "block";
   document.getElementById("result").innerHTML =
-    "🌱 您需要 <b>" + trees + "</b> 棵树来支持 <b>" + p + "</b> 个人。";
+    "🌍 总碳足迹：<b>" + totalCO2.toLocaleString() + " kg/年</b><br><br>" +
+
+    "🌳 树木抵消估算（范围）：<br>" +
+    "• 低估算：<b>" + treesMax.toLocaleString() + "</b> 棵树<br>" +
+    "• 高效率：<b>" + treesMin.toLocaleString() + "</b> 棵树<br>" +
+    "• 平衡估算：<b>" + treesAvg.toLocaleString() + "</b> 棵树<br><br>" +
+
+    "🌱 森林视角：" + forestType + "<br><br>" +
+
+    "🌬️ 预计氧气产量（基于成熟树木）：<br>" +
+    "<b>" + oxygenTotal.toLocaleString() + " kg O₂/年</b><br><br>" +
+
+    "🌿 视觉分布（估算）：<br>" +
+    "• 🌱 " + smallTrees + " 棵小树<br>" +
+    "• 🌳 " + mediumTrees + " 棵中等树<br>" +
+    "• 🌲 " + largeTrees + " 棵成熟树<br><br>" +
+
+    "💡 注意：这是一个简化的教育模型。实际数值会因气候、树种和生长条件而变化。<br><br>" +
+
+    "📘 树木不会立即抵消碳排放——碳吸收是随着时间逐步进行的。";
 }
 </script>
 
